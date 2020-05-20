@@ -32,7 +32,8 @@ Desweiteren werden hier Skripte bereitgestellt um die unverschlüsselten LDAP An
     Ermittelt alle Zugriffe auf den Domaincontroller die unverschlüsselt erfolgen
 
 ## Get-PSLDAPSOverview.ps1
-    Ermittelt eine Übersicht über einen Server. Hierbei wird geprüft ob dieser LDAP spricht und wieviel unverschlüsselte Anfragen in den letzten 24 Stunden erfolgt sind.
+    Ermittelt eine Übersicht über einen Server. Hierbei wird geprüft ob dieser LDAP spricht 
+    und wieviel unverschlüsselte Anfragen in den letzten 24 Stunden erfolgt sind.
 
 ## Get-PSLDAPSOverviewDays.ps1
     Ermittelt alle Domain Controller einer Domäne und gibt Statistiken über die LDAP Aufrufe der letzten 7 Tage aus.
