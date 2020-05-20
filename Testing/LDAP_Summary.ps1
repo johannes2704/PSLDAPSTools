@@ -1,17 +1,19 @@
-#[String]$Folder = "C:\Test"
-[String]$Testfile = 'C:\Test\20200513-2000 - AD-01 - InsecureLDAPBinds.csv'
-
-Import-CSV $Testfile | Get-Unique
-
+[String]$Folder = ".\TestData\"
+[String]$Testfile = ".\TestData\20200518-1210 - AD-01 - InsecureLDAPBinds.csv"
+[String]$FileLoggedSystems = "C:\LDAP\LDAPLoggedSystems.csv"
 
 
-<#
-$Files = Get-ChildItem $Folder -Filter '*.csv'
-$CSV = {}
-Foreach ($file in $files) {
-    $String = Import-Csv $file | Select-Object -Unique
-    $CSV = $CSV + $String
+if (Test-Path $FileLoggedSystems -ErrorAction SilentlyContinue){
+    $LDAPBinds += Import-CSV $FileLoggedSystems
+} else {
+    New-Item -ItemType "directory" "C:\LDAP\"
 }
 
-$CSV
-#>
+$files = Get-ChildItem -Path $Folder -Filter "*.csv"
+foreach ($file in $files){
+    $LDAPBinds += Import-CSV $file.FullName
+}
+$LDAPBinds += Import-CSV $Testfile
+
+$UniqueLDAPBinds = $LDAPBinds | Select-Object IPAddress,User,BindType -Unique
+$UniqueLDAPBinds | Export-CSV -NoTypeInformation $FileLoggedSystems 
