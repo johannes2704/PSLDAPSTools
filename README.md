@@ -10,7 +10,7 @@ und die Systeme ermittelt werden, die noch unverschlüsselt mit Domain Controlle
 Dieses Repository enthält alle Skripte um einen Domain Controller LDAPS fähig zu machen.
 Desweiteren werden hier Skripte bereitgestellt um die unverschlüsselten LDAP Anfragen automatisiert zu protokollieren.
 
-## New-PSLDAPSCertificate.ps1
+### New-PSLDAPSCertificate.ps1
     Erstellt ein Self Signed Zertifikat das für 5 Jahre gültig ist. Wird benötigt um den LDAPS Port hochzufahren.
     Dies muss auf jedem Domain Controller ausgeführt werden.
 
@@ -23,8 +23,10 @@ Desweiteren werden hier Skripte bereitgestellt um die unverschlüsselten LDAP An
     Dieser führt das Create-PSLDAPSLogging.ps1 unter C:\LDAP Skript jede Stunde aus
 
 ## Disable-PSLDAPSDebugging.ps1
+    Schaltet die LDAP Diagnostics ab. 
+
 ## Enable-PSLDAPSDebugging.ps1
-    Mit diesen zwei Skripten kann das Debugging jeweils ein und ausgeschalten werden
+    Schaltet die LDAP Diagnostics an.
 
 ## Get-PSLDAPSInsecureBinds.ps1
     Ermittelt alle Zugriffe auf den Domaincontroller die unverschlüsselt erfolgen
