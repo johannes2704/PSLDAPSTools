@@ -4,7 +4,6 @@ Function Get-PSLDAPSOverview{
         [Parameter(ValueFromPipeline=$true)]$HostName = "$env:computername.$env:userdnsdomain"
     )
 
-
     process{
         $ComputerName = $HostName
 
