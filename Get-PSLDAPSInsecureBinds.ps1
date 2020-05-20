@@ -15,7 +15,7 @@ Function Get-PSLDAPSInsecureBinds{
 		$InsecureLDAPBinds = @()
 
 		# Grab the appropriate event entries
-		$Events = Get-WinEvent -ComputerName $ComputerName -FilterHashtable @{Logname='Directory Service';Id=2889; StartTime=(get-date).AddHours("-$Hours")}
+		$Events = Get-WinEvent -ComputerName $ComputerName -FilterHashtable @{Logname='Directory Service';Id=2889; StartTime=(get-date).AddHours("-$Hours")} -ErrorAction SilentlyContinue
 
 		# Loop through each event and output the 
 		ForEach ($Event in $Events) { 
