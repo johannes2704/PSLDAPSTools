@@ -14,13 +14,14 @@ Desweiteren werden hier Skripte bereitgestellt um die unverschlüsselten LDAP An
     Erstellt ein Self Signed Zertifikat das für 5 Jahre gültig ist. Wird benötigt um den LDAPS Port hochzufahren.
     Dies muss auf jedem Domain Controller ausgeführt werden.
 
-## Create-PSLDAPSLogging.ps1
+## Get-PSLDAPSConnections.ps1
     Skript für das automatisierte Loggen von LDAP Events
     Dieses sollte nach C:\LDAP\ kopiert werden
+    Ausgabe wird nach C:\LDAP\LDAPSysteme.csv geschrieben.
 
 ## Create-PSLDAPSTask.ps1
     Mit diesem Skript wird ein Task in der Aufgabenplanung erstellt.
-    Dieser führt das Create-PSLDAPSLogging.ps1 unter C:\LDAP Skript jede Stunde aus
+    Dieser führt das CGETPSLDAPSConnections unter C:\LDAP Skript jede Stunde aus
 
 ## Disable-PSLDAPSDebugging.ps1
     Schaltet die LDAP Diagnostics ab. 
