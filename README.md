@@ -38,4 +38,29 @@ Desweiteren werden hier Skripte bereitgestellt um die unverschlüsselten LDAP An
 
 ## Get-PSLDAPSOverviewDays.ps1
     Ermittelt alle Domain Controller einer Domäne und gibt Statistiken über die LDAP Aufrufe der letzten 7 Tage aus.
-    
+
+
+## Anleitung
+
+### Debugging einschalten
+- Setzt die Registry Keys wie in der Anleitung beschrieben oder führt das Skript Enable-PSLDAPSDebugging.ps1 auf jedem Domain Controller aus.
+
+### Automatischer Task
+- Erstellt einen Ordner unter C:\LDAP\
+- Kopiert das Skript Get-PSLDAPSConnections.ps1 in den Ordner C:\LDAP\
+- Erstellt einen Task mit dem Skript Create-PSLDAPSTask.ps1
+
+### Auswerten
+- Unter C:\LDAP\LDAPSysteme.csv findet ihr alle Systeme die unverschlüsselt oder unsigniert mit den Domain Controllern gesprochen haben.
+- Die Datei wird 1x pro Stunde durch den Task upgedatet.
+- Die Auswertung sollte über mehrere Tage erfolgen.
+
+### Umstellen
+- Je nach System muss dies dann entsprechend umgestellt werden. Hinweise finden sich hier oft in der Dokumentation der Hersteller
+
+### Cleanup
+- Deaktiviert das Debugging mit Disable-PSLDAPSDebugging.ps1 auf allen Domain Controllern
+- Entfernt den Task aus der Aufgabenplanung mit Remove-PSLDAPSTask.ps1
+- Entfernt den Ordner C:\LDAP\ und die Skripte vom System.
+
+
