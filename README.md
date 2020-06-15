@@ -42,10 +42,8 @@ Desweiteren werden hier Skripte bereitgestellt um die unverschlüsselten LDAP An
 
 ## Anleitung
 
-### Debugging einschalten
-- Setzt die Registry Keys wie in der Anleitung beschrieben oder führt das Skript Enable-PSLDAPSDebugging.ps1 auf jedem Domain Controller aus.
-
 ### Automatischer Task
+- Aktiviert das Debugging mit Enable-PSLDAPSDebugging.ps1 auf allen Domain Controllern
 - Erstellt einen Ordner unter C:\LDAP\
 - Kopiert das Skript Get-PSLDAPSConnections.ps1 in den Ordner C:\LDAP\
 - Erstellt einen Task mit dem Skript Create-PSLDAPSTask.ps1
@@ -55,12 +53,10 @@ Desweiteren werden hier Skripte bereitgestellt um die unverschlüsselten LDAP An
 - Die Datei wird 1x pro Stunde durch den Task upgedatet.
 - Die Auswertung sollte über mehrere Tage erfolgen.
 
-### Umstellen
+### Umstellen der Systeme
 - Je nach System muss dies dann entsprechend umgestellt werden. Hinweise finden sich hier oft in der Dokumentation der Hersteller
 
 ### Cleanup
 - Deaktiviert das Debugging mit Disable-PSLDAPSDebugging.ps1 auf allen Domain Controllern
 - Entfernt den Task aus der Aufgabenplanung mit Remove-PSLDAPSTask.ps1
 - Entfernt den Ordner C:\LDAP\ und die Skripte vom System.
-
-
