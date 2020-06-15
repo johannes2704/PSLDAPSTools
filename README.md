@@ -16,7 +16,7 @@ Desweiteren werden hier Skripte bereitgestellt um die unverschlüsselten LDAP An
 
 ## Create-PSLDAPSTask.ps1
     Mit diesem Skript wird ein Task in der Aufgabenplanung erstellt.
-    Dieser führt das CGETPSLDAPSConnections unter C:\LDAP Skript jede Stunde aus
+    Dieser führt das GETPSLDAPSConnections.ps1 unter C:\LDAP Skript jede Stunde aus
 
 ## Disable-PSLDAPSDebugging.ps1
     Schaltet die LDAP Diagnostics ab. 
@@ -28,9 +28,6 @@ Desweiteren werden hier Skripte bereitgestellt um die unverschlüsselten LDAP An
     Skript für das automatisierte Loggen von LDAP Events
     Dieses sollte nach C:\LDAP\ kopiert werden
     Ausgabe wird nach C:\LDAP\LDAPSysteme.csv geschrieben.
-
-## Get-PSLDAPSInsecureBinds.ps1
-    Ermittelt alle Zugriffe auf den Domaincontroller die unverschlüsselt erfolgen
 
 ## Get-PSLDAPSOverview.ps1
     Ermittelt eine Übersicht über einen Server. Hierbei wird geprüft ob dieser LDAP spricht 
@@ -54,7 +51,10 @@ Desweiteren werden hier Skripte bereitgestellt um die unverschlüsselten LDAP An
 - Die Auswertung sollte über mehrere Tage erfolgen.
 
 ### Umstellen der Systeme
-- Je nach System muss dies dann entsprechend umgestellt werden. Hinweise finden sich hier oft in der Dokumentation der Hersteller
+- Erstellt mit dem Skript New-PSLDAPSCertificate.ps1 ein Zertifikat auf jedem Domain Controller falls nötig. 
+- Hier sollte wenn möglich aber ein Zertifikat einer internen PKI verwendet werden, falls eine vorhanden ist.
+- Je nach System muss dies dann entsprechend umgestellt werden. 
+- Hinweise finden sich hier oft in der Dokumentation der Hersteller
 
 ### Cleanup
 - Deaktiviert das Debugging mit Disable-PSLDAPSDebugging.ps1 auf allen Domain Controllern
