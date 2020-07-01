@@ -13,7 +13,7 @@ try {
 # Global Variables
 [int]$Unencrypted = 0
 [int]$Unsigned = 0
-[int]$Unsecured = 0
+[int]$UnsignedLDAPS = 0
 
 #Check if debugging is enabled
 if (Test-Path HKLM:\SYSTEM\CurrentControlSet\Services\NTDS\Diagnostics -ErrorAction SilentlyContinue) {
