@@ -1,6 +1,6 @@
 ﻿$jobname = "N16 LDAP unsignierte Events"
 $action = New-ScheduledTaskAction –Execute 'powershell.exe' -Argument '-file C:\LDAP\Get-PSLDAPSConnections.ps1' -WorkingDirectory 'C:\LDAP\'
-$trigger = New-ScheduledTaskTrigger -Once -At (Get-Date) -RepetitionInterval (New-TimeSpan -Hours "1") -RepetitionDuration "1"
+$trigger = New-ScheduledTaskTrigger -Once -At (Get-Date) -RepetitionInterval (New-TimeSpan -Hours "1")
 $Description='Dieser Task sammelt automatisiert die unverschlüsselten LDAP Aufrufe auf allen Domain Controller ein'
 $credential = Get-Credential
 $settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -StartWhenAvailable -DontStopOnIdleEnd
