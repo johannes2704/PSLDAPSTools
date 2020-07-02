@@ -1,4 +1,4 @@
-$githubver = "https://raw.githubusercontent.com/johannes2704/PSLDAPSTools/master/version.txt"
+$githubver = "https://raw.githubusercontent.com/johannes2704/PSLDAPSTools/master/Version.txt"
 $version = "1.1.1"
 
 function UpdatesAvailable(){
