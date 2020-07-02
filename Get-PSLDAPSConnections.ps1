@@ -1,5 +1,5 @@
 Param(
-    [String]$LogFile = ".\LDAPSysteme.csv",
+    [String]$LogFile = "C:\LDAP\LDAPSysteme.csv",
     $OutputConsole = $true
 )
 
