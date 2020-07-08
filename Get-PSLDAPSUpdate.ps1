@@ -1,5 +1,5 @@
 $githubver = "https://raw.githubusercontent.com/johannes2704/PSLDAPSTools/master/Version.txt"
-$version = "1.1.1"
+$version = "1.1.0"
 
 function UpdatesAvailable(){
 
@@ -12,7 +12,7 @@ function UpdatesAvailable(){
 	}
 	
 	Write-Host "CURRENT VERSION: $version"
-	Write-Host "NEXT VERSION: $nextversion"
+	Write-Host "AVAILABLE VERSION: $nextversion"
 	if ($null -ne $nextversion -and $version -ne $nextversion){
 		#An update is most likely available, but make sure
 		$updateavailable = $false
@@ -26,6 +26,24 @@ function UpdatesAvailable(){
 		}
 	}
 	return $updateavailable
+}
+
+function Get-Updates(){
+	if (Test-Connection 8.8.8.8 -Count 1 -Quiet)	{
+		$updatepath = "$($PWD.Path)\update.ps1"
+		if (Test-Path -Path $updatepath)			{
+			#Remove-Item $updatepath
+		}
+		if (UpdatesAvailable) {
+				(New-Object System.Net.Webclient).DownloadFile($updatefile, $updatepath)
+				Start-Process PowerShell -Arg $updatepath
+				exit
+			}
+		}
+	}
+	else {
+		Write-Message "Unable to check for updates. Internet connection not available." "warning"
+	}
 }
 
 UpdatesAvailable
